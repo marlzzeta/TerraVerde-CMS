@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { Database, BookOpen, RefreshCw, TreePine, Wheat, Zap, Flower2, Leaf, ChevronRight, Shield, Globe, TrendingUp } from 'lucide-react'
