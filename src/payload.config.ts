@@ -15,19 +15,6 @@ import { StrategicSectors } from './globals/StrategicSectors'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const dbUri = process.env.DATABASE_URI
-console.log('[TerraVerde] DATABASE_URI set:', !!dbUri, '| length:', dbUri?.length ?? 0)
-if (dbUri) {
-  try {
-    const u = new URL(dbUri)
-    console.log('[TerraVerde] DB host:', u.hostname, '| port:', u.port)
-  } catch {
-    console.log('[TerraVerde] DATABASE_URI is NOT a valid URL:', dbUri.slice(0, 40))
-  }
-} else {
-  console.log('[TerraVerde] DATABASE_URI is UNDEFINED — check Vercel env vars')
-}
-
 export default buildConfig({
   admin: {
     user: Users.slug,
