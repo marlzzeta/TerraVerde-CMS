@@ -15,15 +15,6 @@ import { StrategicSectors } from './globals/StrategicSectors'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-// debug-v2
-const _dbUri = process.env['DATABASE_URI']
-if (_dbUri) {
-  try { const u = new URL(_dbUri); console.log('[TV] host:', u.hostname) }
-  catch { console.log('[TV] BAD_URL len:', _dbUri.length, 'bytes0-2:', _dbUri.charCodeAt(0), _dbUri.charCodeAt(1), _dbUri.charCodeAt(2)) }
-} else {
-  console.log('[TV] DATABASE_URI=UNDEFINED')
-}
-
 export default buildConfig({
   admin: {
     user: Users.slug,
