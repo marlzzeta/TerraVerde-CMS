@@ -25,6 +25,9 @@ export default buildConfig({
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || 'terraverde-secret',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
-  db: postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI } }),
+  db: postgresAdapter({
+    pool: { connectionString: process.env.DATABASE_URI },
+    push: true, // auto-create tables on serverless (no manual migrations needed)
+  }),
   plugins: [],
 })
