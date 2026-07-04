@@ -9,7 +9,11 @@ type Args = {
   children: React.ReactNode
 }
 
-const serverFunction = handleServerFunctions
+// Wrap as a proper server action so React 19 allows passing it to client components
+async function serverFunction(...args: Parameters<typeof handleServerFunctions>) {
+  'use server'
+  return handleServerFunctions(...args)
+}
 
 const Layout = ({ children }: Args) =>
   RootLayout({ config, children, importMap, serverFunction })
